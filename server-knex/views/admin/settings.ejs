@@ -1,0 +1,108 @@
+<div class="row mt-2">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <h3>Settings</h3>
+    </div>
+</div>
+<hr>
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="">Account Settings</h5>
+            </div>
+            <% data.errors.forEach(function(result){ %>
+            <div class="alert alert-danger" role="alert">
+                <%= result.message %>
+            </div>
+            <% }); %>
+            <div class="card-body">
+                <form action="/admin/account-setting/edit" method="POST">
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input id="email" name="email" value="<%= data.adminEmail %>" type="email" class="form-control"
+                            placeholder="Enter Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password:</label>
+                        <div class="input-group mb-3">
+                            <input id="password" name="password" value="" type="password" class="form-control"
+                                placeholder="Enter Password">
+                            <div class="input-group-append">
+                                <button onclick="toggleShowHidePassword();" class="btn btn-outline-secondary"
+                                    type="button" id="btn-show-hide"><i class="bi bi-eye-slash"
+                                        aria-hidden="true"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="space-30"></div>
+
+<div class="row">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="">Frontend Settings</h5>
+            </div>
+            <div class="card-body">
+                <form action="/admin/frontend-setting/edit" method="POST">
+                    <div class="form-group">
+                        <label for="tx-site-title">Site Title:</label>
+                        <input id="tx-site-title" name="siteTitle" type="text"
+                            value="<%= data.setting.siteTitle %>" class="form-control">
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="tx-site-seo-title">Site SEO Title:</label>
+                        <input id="tx-site-seo-title" name="siteSEOTitle" type="text"
+                            value="<%= data.setting.siteSEOTitle %>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tx-site-description">Site Description:</label>
+                        <input id="tx-site-description" name="siteDescription" type="text"
+                            value="<%= data.setting.siteDescription %>" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="tx-site-seo-description">Site SEO Description:</label>
+                        <input id="tx-site-seo-description" name="siteSEODescription" type="text"
+                           value="<%= data.setting.siteSEODescription %>" class="form-control">
+                   </div>
+                   
+                   <div class="form-group">
+                        <label for="recent-pastes-max-number">Recent Pastes Max Number:</label>
+                        <input id="recent-pastes-max-number" name="recentPastesMaxNumber" type="number"
+                            value="<%= data.setting.recentPastesMaxNumber %>" min="1" max="100" step="1">
+                   </div>
+                    
+                    <div class="form-group">
+                        <label for="trends-max-number-per-page">Trends Max Number Per Page:</label>
+                        <input id="trends-max-number-per-page" name="trendsMaxNumberPerPage" type="number"
+                            value="<%= data.setting.trendsMaxNumberPerPage %>" min="1" max="100" step="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="search-results-max-number-per-page">Search Result Max Number Per Page:</label>
+                        <input id="search-results-max-number-per-page" name="searchResultsMaxNumberPerPage" type="number"
+                            value="<%= data.setting.searchResultsMaxNumberPerPage %>" min="1" max="100" step="1">
+                    </div>
+                    
+
+                    <div class="space-15"></div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

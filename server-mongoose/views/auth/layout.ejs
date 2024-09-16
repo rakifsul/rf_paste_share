@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" type="image/png" href="/public/favicon.png" />
+
+    <title>
+        <%= data.setting.siteTitle %>
+    </title>
+
+    <link rel="stylesheet" href="/public/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/vendor/datatables/dataTables.bootstrap4.min.css" />
+    <link rel='stylesheet' href='/public/vendor/simplemde/simplemde.min.css' />
+    <link rel='stylesheet' href='/public/css/admin_style.css' />
+</head>
+
+<body>
+    <div id="app" class="container">
+        <% include ../functions %>
+        <%- include("../" + child, {data: data}); %>
+    </div>
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/vendor/bootstrap-input-spinner/bootstrap-input-spinner.js"></script>
+    <script src="/public/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="/public/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="/public/vendor/simplemde/simplemde.min.js"></script>
+    <script src="/public/vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="/public/js/helpers.js"></script>
+    <%- include("../" + clientScript, {data: data}); %>
+</body>
+
+</html>

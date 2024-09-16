@@ -1,0 +1,16 @@
+<script>
+    function toggleShowHidePassword() {
+        let passwordElement = $("#password");
+        if (passwordElement.attr("type") === "password") {
+            passwordElement.attr("type", "text");
+            $('#btn-show-hide i').removeClass("bi-eye-slash");
+            $('#btn-show-hide i').addClass("bi-eye");
+        } else {
+            passwordElement.attr("type", "password");
+            $('#btn-show-hide i').addClass("bi-eye-slash");
+            $('#btn-show-hide i').removeClass("bi-eye");
+        }
+    };
+
+    $("input[type='number']").inputSpinner();
+</script>

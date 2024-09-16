@@ -1,0 +1,11 @@
+Bootstrap v4.2.1:
+This software is using Bootstrap v4.2.1 (https://getbootstrap.com) by Twitter, Inc. & The Bootstrap Authors under the MIT license(https://github.com/twbs/bootstrap/blob/master/LICENSE). 
+
+ejs:
+This software is using ejs(https://github.com/mde/ejs) by mde and all contributors under the Apache 2.0 license(http://www.apache.org/licenses/LICENSE-2.0.html).
+
+tunnel-agent:
+This software is using tunnel-agent(https://github.com/mikeal/tunnel-agent) by Mikeal Rogers under the Apache 2.0 license(http://www.apache.org/licenses/LICENSE-2.0.html).
+
+validate-npm-package-license:
+This software is using validate-npm-package-license(https://github.com/kemitchell/validate-npm-package-license.js) by Kyle E. Mitchell under the Apache 2.0 license(http://www.apache.org/licenses/LICENSE-2.0.html).

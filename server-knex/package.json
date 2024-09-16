@@ -1,0 +1,31 @@
+{
+    "name": "shb-nd-paste-share",
+    "version": "2022.10.20",
+    "description": "Aplikasi web berbagi paste.",
+    "main": "app.js",
+    "scripts": {
+        "start": "node main.js",
+        "dev": "nodemon -e js,ejs,html -w . -w public -w views -w routes -w models main.js --debug",
+        "db:refresh": "npx knex migrate:rollback --knexfile ./databases/knexfile.js && npx knex migrate:latest --knexfile ./databases/knexfile.js"
+    },
+    "dependencies": {
+        "bcryptjs": "^2.4.3",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "~1.4.4",
+        "dotenv": "^10.0.0",
+        "ejs": "~2.6.1",
+        "express": "~4.16.1",
+        "express-session": "^1.17.1",
+        "http-errors": "~1.6.3",
+        "joi": "^17.3.0",
+        "knex": "^2.4.2",
+        "morgan": "~1.9.1",
+        "mysql2": "^3.2.0",
+        "randomstring": "^1.1.5",
+        "session-file-store": "^1.5.0",
+        "showdown": "^1.9.1"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.6"
+    }
+}

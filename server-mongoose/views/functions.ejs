@@ -1,0 +1,20 @@
+<%
+getTheExcerpt = function(wholeText) {
+    var strLen = wholeText.length;
+    if (strLen < 100) {
+        return wholeText.substring(0, strLen);
+    }
+    return wholeText.substring(0, 100);
+}
+isOptionSelected = function (val, valDB) {
+    return val == valDB ? "selected" : "";
+}
+pgnPrevious = function (currentPage) {
+    let tmp = currentPage - 1;
+    return tmp < 0 ? { index: 0, disabled: true } : { index: tmp, disabled: false };
+}
+pgnNext = function (currentPage, totalPage) {
+    let tmp = currentPage + 1;
+    return tmp >= totalPage ? { index: currentPage, disabled: true } : { index: tmp, disabled: false };
+}
+%>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="<%= data.setting.siteSEODescription %>">
+
+    <link rel="shortcut icon" type="image/png" href="/public/favicon.png" />
+
+    <!-- [ Social Media meta tag ] -->
+    <meta content='summary' name='twitter:card' />
+    <meta content='' name='twitter:site' />
+    <meta content='' name='twitter:creator' />
+
+    <meta content='<%= data.baseURL %>' property='og:url' />
+    <meta content='<%= data.setting.siteTitle %>' property='og:site_name' />
+    <meta content='<%= data.setting.siteTitle %>' property='og:title' />
+    <meta content='<%= data.setting.siteTitle %>' name='twitter:title' />
+    <meta content='website' property='og:type' />
+    <meta content='<%= data.setting.baseURL %>/public/img/icon.png' property='og:image' />
+    <meta content='<%= data.setting.baseURL %>/public/img/icon.png' name='twitter:image' />
+    <meta content='<%= data.setting.siteTitle %>. <%= data.setting.siteSEODescription %>' property='og:description' />
+    <meta content='<%= data.setting.siteTitle %>. <%= data.setting.siteSEODescription %>' name='twitter:description' />
+    <meta content='en_US' property='og:locale' />
+    <!-- [/ Social Media meta tag ] -->
+
+    <title>
+        <% if(data.result) { %>
+        <%= data.result.title %> - <%= data.setting.siteTitle %>
+        <% } else { %> 
+        <%= data.setting.siteTitle %>
+        <% } %> 
+    </title>
+
+
+    <link rel="stylesheet" href="/public/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/vendor/icons/font/bootstrap-icons.css" />
+    <link rel='stylesheet' href='/public/vendor/simplemde/simplemde.min.css' />
+    <link rel='stylesheet' href='/public/css/index_style.css' />
+</head>
+
+<body>
+    <div id="app" class="container">
+        <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-success">
+            <a class="navbar-brand" href="/">
+                <%= data.setting.siteTitle %>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/">Home</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/trends">Trends</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/auth/login">Login</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="/auth/register">Register</a>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <input id="query" class="form-control mr-sm-2" type="search" placeholder="Search"
+                        aria-label="Search" name="q">
+                    <button id="btn-search" onclick="search();" class="btn btn-light my-2 my-sm-0"
+                        type="submit">Search</button>
+                </div>
+            </div>
+        </nav>
+
+        <% include ../functions %>
+
+        <%- include("../" + child, {data: data}); %>
+
+        <footer class="footer">
+            <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-success">
+                <a class="navbar-brand" href="javascript:void(0);">Footer text.</a>
+            </nav>
+        </footer>
+    </div>
+    <script src="/public/vendor/jquery/jquery.min.js"></script>
+    <script src="/public/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="/public/vendor/simplemde/simplemde.min.js"></script>
+    <script src="/public/vendor/clipboard.js/clipboard.min.js"></script>
+    <script src="/public/js/helpers.js"></script>
+    <%- include("../" + clientScript, {data: data}); %>
+    <script>
+        $(document).keypress(function (e) {
+            if (e.which === 13) {
+                $("#btn-search").click();
+            }
+        });
+
+        function search() {
+            window.location = "/search?" + "q=" + $("#query").val() + "&" + "page=" + 0;
+        }
+    </script>
+</body>
+</html>

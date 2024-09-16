@@ -1,0 +1,13 @@
+body {
+  margin-top: 70px;
+  margin-bottom: 70px;
+}
+
+.space-30 {
+  margin-top: 30px;
+}
+
+.bi {
+  margin: .25rem;
+  font-size: 2.5rem;
+}

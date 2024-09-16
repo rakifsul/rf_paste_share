@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="">
+                        <%= data.result.title %>
+                    </h3>
+                </div>
+                <div class="card-body">
+                    <textarea id="paste-content"><%= data.result.content %></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="space-30"></div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="">Links For This Paste</h3>
+                </div>
+                <div class="card-body">
+                    <label for="paste-url">Paste URL:</label>
+                    <div class="input-group mb-3">
+                        <input id="paste-url" value="<%= data.baseURL %>/view/<%= data.result.slug %>" type="text"
+                            class="form-control" placeholder="Paste URL" aria-label="Paste URL"
+                            aria-describedby="btn-copy-paste-url">
+                        <div class="input-group-append">
+                            <button class="btn btn-outline-secondary btn-copy" type="button" id="btn-copy-paste-url"
+                                data-clipboard-target="#paste-url">Copy</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="space-30"></div>
+
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="">Share</h3>
+                </div>
+                <div class="card-body">
+                    <div style="text-align: center">
+                        <a href="http://www.facebook.com/share.php?u=<%= data.baseURL %>/view/<%= data.result.slug %>&t=<%= data.result.title %>"
+                            target="_blank">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+                        <a href="http://twitter.com/share?original_referer=<%= data.baseURL %>/view/<%= data.result.slug %>&source=web&text=<%= data.result.title %>"
+                            target="_blank">
+                            <i class="bi bi-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

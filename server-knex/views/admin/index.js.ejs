@@ -1,0 +1,44 @@
+<script>
+    $.post("/admin", function (data) {
+        console.log(data)
+        let keys = [];
+        let vals = [];
+
+        for (let item of data) {
+            keys.push(item.key);
+            vals.push(item.value);
+        }
+
+        var chLine = document.getElementById("chLine");
+        var chartData = {
+            labels: keys,
+            datasets: [{
+                data: vals,
+                backgroundColor: '#c3e6cb',
+                borderColor: '#28a745',
+                borderWidth: 4,
+                pointBackgroundColor: '#28a745',
+                label: "Number Of Paste Created"
+            }]
+        };
+
+        if (chLine) {
+            new Chart(chLine, {
+                type: 'line',
+                data: chartData,
+                options: {
+                    scales: {
+                        yAxes: [{
+                            ticks: {
+                                beginAtZero: true
+                            }
+                        }]
+                    },
+                    legend: {
+                        display: true
+                    }
+                }
+            });
+        }
+    });
+</script>

@@ -1,0 +1,51 @@
+<script>
+    function generateActions(data, type, dataToSet) {
+        return `
+        <a class="btn btn-primary btn-sm" href="/view/${data.slug}" target="_blank">View</a>
+        |
+        <a class="btn btn-success btn-sm" href="/edit/${data.editSlug}" target="_blank">Edit</a> 
+        |
+        <a class="btn btn-danger btn-sm" href="/admin/paste/delete/${data.editSlug}">Delete</a>
+        `;
+    }
+
+    function generateExcerpt(data) {
+        if (data.content.length < 100) {
+            return data.content.substring(0, data.content.length);
+        }
+        return data.content.substring(0, 100);
+    }
+
+    $(document).ready(function () {
+        let t = $('#pastes').DataTable({
+            "paging": true,
+            "pageLength": 10,
+            "searching": true,
+            "processing": true,
+            "serverSide": true,
+            "ajax": {
+                "type": "POST",
+                "url": "/admin/paste/list",
+                "dataSrc": "data"
+            },
+            "columns": [{
+                "data": "title",
+                "defaultContent": "",
+                "name": "Title"
+            }, {
+                "data": generateExcerpt,
+                "defaultContent": "",
+                "name": "Content"
+            }, {
+                "data": generateActions,
+                "defaultContent": "",
+                "name": "Action"
+            }],
+            "columnDefs": [{
+                "searchable": true,
+                "orderable": false,
+                "targets": 0
+            }]
+        });
+    });
+</script>

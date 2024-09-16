@@ -1,0 +1,124 @@
+<div class="container">
+    <% data.errors.forEach(function(result){ %>
+        <div class="alert alert-danger" role="alert">
+            <%= result.message %>
+        </div>
+    <% }); %>
+    <form action="/edit" method="post">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="">Edit Paste</h3>
+                    </div>
+                    <div class="card-body">
+                        <textarea id="paste-content" name="pasteContent"><%= data.result.content %></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="space-30"></div>
+
+        <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="">Settings</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="paste-expiry">Paste Expiry:</label>
+                            <select id="paste-expiry" name="pasteExpiry" class="form-control">
+                                <option value="1 Day" <%=isOptionSelected("1 Day", data.result.expiry) %>>1
+                                    Day</option>
+                                <option value="12 Hours" <%=isOptionSelected("12 Hours", data.result.expiry) %>
+                                    >12
+                                    Hours
+                                </option>
+                                <option value="3 Hours" <%=isOptionSelected("3 Hours", data.result.expiry) %>>3
+                                    Hours
+                                </option>
+                                <option value="30 Minutes" <%=isOptionSelected("30 Minutes", data.result.expiry)
+                                    %>>30
+                                    Minutes
+                                </option>
+                                <option value="2 Minutes" <%=isOptionSelected("2 Minutes", data.result.expiry)
+                                    %>>2
+                                    Minutes
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paste-exposure">Paste Exposure:</label>
+                            <select id="paste-exposure" name="pasteExposure" class="form-control">
+                                <option value="Public" <%=isOptionSelected("Public", data.result.exposure) %>
+                                    >Public
+                                </option>
+                                <option value="Unlisted" <%=isOptionSelected("Unlisted", data.result.exposure)
+                                    %>>
+                                    Unlisted
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="paste-title">Title:</label>
+                            <input id="paste-title" type="text" name="pasteTitle"
+                                value="<%= data.result.title %>" class="form-control">
+                        </div>
+
+                        <br />
+
+                        <input id="save-paste" class="btn btn-danger btn-block" type="submit"
+                            value="Save Paste" />
+                        <a class="btn btn-danger btn-block text-light"
+                            href="/delete/<%= data.result.editSlug %>">Delete Paste</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="">Links For This Paste</h3>
+                    </div>
+                    <div class="card-body" style="min-height: 403px; max-height: 403px;">
+                        <label for="edit-url">Edit URL:</label>
+                        <div class="input-group mb-3">
+                            <input id="edit-url" 
+                                value="<%= data.baseURL %>/edit/<%= data.result.editSlug %>" type="text"
+                                class="form-control" placeholder="Edit URL" aria-label="Edit URL"
+                                aria-describedby="btn-copy-edit-url">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary btn-copy" type="button"
+                                    id="btn-copy-edit-url" data-clipboard-target="#edit-url">Copy</button>
+                            </div>
+                        </div>
+
+                        <label for="paste-url">Paste URL:</label>
+                        <div class="input-group mb-3">
+                            <input id="paste-url" 
+                                value="<%= data.baseURL %>/view/<%= data.result.slug %>" type="text"
+                                class="form-control" placeholder="Paste URL" aria-label="Paste URL"
+                                aria-describedby="btn-copy-paste-url">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary btn-copy" type="button"
+                                    id="btn-copy-paste-url" data-clipboard-target="#paste-url">Copy</button>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-body">
+                                <p><b>Simpan URL di atas dengan baik</b>. Aplikasi ini menggunakan secret URL
+                                    dan tidak
+                                    ada sistem login.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
