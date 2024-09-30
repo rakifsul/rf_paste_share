@@ -1,5 +1,5 @@
 {
-  "name": "shb-nd-paste-share",
+  "name": "rf_paste_share",
   "version": "2022.10.20",
   "description": "Aplikasi web berbagi paste.",
   "main": "app.js",

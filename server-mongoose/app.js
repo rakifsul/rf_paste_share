@@ -105,10 +105,10 @@ mongoose.connection.on("connected", async function () {
     if (setting.length == 0) {
         console.log("Config belum ada, membuat config default...")
         let newSetting = new Setting({
-            siteTitle: "SHBNDPasteShare",
-            siteSEOTitle: "SHBNDPasteShare - Aplikasi web berbagi paste",
-            siteDescription: "SHBNDPasteShare adalah aplikasi web berbagi paste...",
-            siteSEODescription: "SHBNDPasteShare adalah aplikasi web berbagi paste...",
+            siteTitle: "RF Paste Share",
+            siteSEOTitle: "RF Paste Share - Aplikasi web berbagi paste",
+            siteDescription: "RF Paste Share adalah aplikasi web berbagi paste...",
+            siteSEODescription: "RF Paste Share adalah aplikasi web berbagi paste...",
             recentPastesMaxNumber: 4,
             trendsMaxNumberPerPage: 4,
             searchResultsMaxNumberPerPage: 4

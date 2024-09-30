@@ -54,13 +54,13 @@ exports.up = function (knex) {
         .then(() => {
             return knex("settings").insert([
                 {
-                    siteTitle: "SHBNDEJSPasteShare",
+                    siteTitle: "RF Paste Share",
                     siteSEOTitle:
-                        "SHBNDEJSPasteShare - Blog CMS, Dibuat Menggunakan Node.js",
+                        "RF Paste Share - Blog CMS, Dibuat Menggunakan Node.js",
                     siteDescription:
-                        "SHBNDEJSPasteShare adalah aplikasi web untuk membuat blog...",
+                        "RF Paste Share adalah aplikasi web untuk membuat blog...",
                     siteSEODescription:
-                        "SHBNDEJSPasteShare adalah aplikasi web untuk membuat blog...",
+                        "RF Paste Share adalah aplikasi web untuk membuat blog...",
                     recentPastesMaxNumber: 4,
                     trendsMaxNumberPerPage: 4,
                     searchResultsMaxNumberPerPage: 4,

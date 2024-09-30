@@ -1,8 +1,0 @@
-{
-	"siteTitle": "NDPasteShare",
-	"siteDesc": "NDPasteShare adalah aplikasi web berbagi paste...",
-	"baseURL": "http://localhost:3000",
-	"recentPastesMaxNumber": "4",
-	"trendsMaxNumberPerPage": "2",
-	"searchResultsMaxNumberPerPage": "2"
-}
